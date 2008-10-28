@@ -1,0 +1,35 @@
+<h1>Listing features</h1>
+<li id="log">
+   <% if logged_in? %>
+      <%= link_to "Log Out", :controller => "sessions", :action => "destroy" %>
+   <% else %>
+      <%= link_to "Log In", :controller => "sessions", :action => "new" %>
+   <% end %>
+</li>
+
+<table>
+  <tr>
+    <th>Business name</th>
+    <th>Telephone</th>
+    <th>Description</th>
+    <th>Category</th>
+  </tr>
+
+<% for feature in @features %>
+  <tr>
+    <td><%=h feature.business_name %></td>
+    <td><%=h feature.telephone %></td>
+    <td><%=h feature.description %></td>
+    <td><%=h feature.category %></td>
+    
+    
+    <td><%= link_to 'Show', feature %></td>
+    <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
+    <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New feature', new_feature_path %>

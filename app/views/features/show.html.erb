@@ -1,0 +1,50 @@
+
+<p>
+  <h1>Business name:</h1>
+  <%=h @feature.business_name %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%=h @feature.telephone %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @feature.description %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @feature.category %>
+</p>
+<% if logged_in?%>
+  <p>
+<i>Write a review</i>
+</p>
+<% @feature.reviews.each do |review| %>
+  <%= review.comments %><br/>
+  <%= review.user.login %>
+  <hr/>
+<% end %>
+<% form_tag feature_reviews_path(@feature) do %>
+  <%= flash[:error] %>
+
+  <p>
+    <%= label :review, :comments %><br />
+    <%= text_area :review, :comments %>
+  </p>
+  <p>
+    <%= label :review, :stars %><br />
+    <%= text_field :review, :stars %>
+  </p>
+  <p>
+    <%= submit_tag   "Create" %>
+  </p>
+<% end %>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_feature_path(@feature) %> |
+<%= link_to 'Back', features_path %>

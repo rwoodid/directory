@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  business_name: MyString
+  telephone: MyString
+  description: MyText
+  category: MyString
+
+two:
+  business_name: MyString
+  telephone: MyString
+  description: MyText
+  category: MyString
