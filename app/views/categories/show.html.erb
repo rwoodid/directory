@@ -1,0 +1,32 @@
+<p
+  <h1><%=h @category.name %></h1>
+</p>
+
+<% @category.business_types.each do |business_type| %>
+  <p>
+  <%= business_type.name %>
+  </p>
+  
+<% end %>
+
+
+
+
+<p> Add a business type </p>
+
+<% form_tag category_business_types_path(@category) do %>
+  <%= flash[:error] %>
+
+  <p>
+    <%= label :business_type, :name %><br />
+    <%= text_field :business_type, :name %>
+
+  
+    <%= submit_tag   "Create" %>
+  </p>
+  
+  <% end %>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

@@ -1,28 +1,6 @@
 <h1>Editing feature</h1>
 
-<% form_for(@feature) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :business_name %><br />
-    <%= f.text_field :business_name %>
-  </p>
-  <p>
-    <%= f.label :telephone %><br />
-    <%= f.text_field :telephone %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial =>"form", :locals => {:feature => @feature,:business_types =>@business_types }%>
 
 <%= link_to 'Show', @feature %> |
 <%= link_to 'Back', features_path %>

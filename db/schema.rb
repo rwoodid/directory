@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081022102513) do
+ActiveRecord::Schema.define(:version => 20090303175157) do
+
+  create_table "business_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id", :limit => 11
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "features", :force => true do |t|
     t.string   "business_name"
@@ -18,6 +31,20 @@ ActiveRecord::Schema.define(:version => 20081022102513) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "business_type_id",       :limit => 11
+    t.decimal  "average_review_stars",                 :precision => 3, :scale => 2
+    t.string   "logophoto_file_name"
+    t.string   "logophoto_content_type"
+    t.integer  "logophoto_file_size",    :limit => 11
+    t.datetime "logophoto_updated_at"
+    t.string   "first_line_address"
+    t.string   "second_line_address"
+    t.string   "address_town"
+    t.string   "address_county"
+    t.string   "address_postcode"
+    t.string   "email"
+    t.string   "web_address"
+    t.string   "summary"
   end
 
   create_table "reviews", :force => true do |t|
@@ -27,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20081022102513) do
     t.text     "comments"
     t.integer  "stars",      :limit => 11
     t.datetime "updated_at"
+    t.string   "best_quote"
   end
 
   create_table "users", :force => true do |t|
@@ -38,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20081022102513) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
+    t.boolean  "admin_access"
   end
 
 end

@@ -1,18 +1,17 @@
-<h1>Listing features</h1>
-<li id="log">
-   <% if logged_in? %>
-      <%= link_to "Log Out", :controller => "sessions", :action => "destroy" %>
-   <% else %>
-      <%= link_to "Log In", :controller => "sessions", :action => "new" %>
-   <% end %>
-</li>
+
+  <% form_tag features_path, {:method => "get"} do %>
+  <label>Search Term</label>
+  <%= text_field_tag "term", params[:term] %>
+  <%= submit_tag "Search" %>
+  <% end -%>
+
 
 <table>
   <tr>
     <th>Business name</th>
     <th>Telephone</th>
     <th>Description</th>
-    <th>Category</th>
+    <th>Business Type</th>
   </tr>
 
 <% for feature in @features %>
@@ -20,16 +19,27 @@
     <td><%=h feature.business_name %></td>
     <td><%=h feature.telephone %></td>
     <td><%=h feature.description %></td>
-    <td><%=h feature.category %></td>
+    <td><%=h feature.business_type.name %></td>
     
     
-    <td><%= link_to 'Show', feature %></td>
-    <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
-    <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
+    
+    <td><%= link_to 'More Info', feature %></td>
+    <% if current_user %>
+      <% if current_user.admin_access %>
+        <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
+        <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    <% end %>  
   </tr>
 <% end %>
+
+
+
 </table>
+
+
 
 <br />
 
 <%= link_to 'New feature', new_feature_path %>
+<%= will_paginate @features %>

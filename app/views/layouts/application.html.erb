@@ -5,14 +5,109 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Features: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' , 'application'%>
+  <%= stylesheet_link_tag 'application'%>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<div id="pagewrap">
-
 <p style="color: green"><%= flash[:notice] %></p>
+<!-- Begin Wrapper -->
+   <div id="wrapper">
+   
+   
+         <!-- Begin Header -->
+         <div id="header">	
+         <div id="best_quote">
+         <%= @random_review.user.login %><span> said "</span>
+         <%= @random_review.best_quote[0,45] %><span>...." about</span>
+         <%= link_to @random_review.feature.business_name, feature_path(@random_review.feature) %>
+ 		
+         </div>
+       
+           
+        
+         <div id="log">
+         <% if current_user %>
+             <p>Hi <%= current_user.login %></p>
+            <%end%>
+         <ul>
+        <% if current_user %>
+            <% if current_user.admin_access %>
+              <li> <%= link_to "Admin", :controller => "admin", :action => "index" %></li>
+            <% end %>
+        <% end %>
+            <% if logged_in? %>
+                    <li><%= link_to "Log Out", :controller => "sessions", :action => "destroy" %></li>
+                    
+            <% else %>
+               <li><%= link_to "Log In", :controller => "sessions", :action => "new" %></li>
+               <li><%= link_to "Signup", :controller => "users", :action => "new" %></li>
 
-<%= yield  %>
+            <% end %>
+				<li><%= link_to "Home", features_path %></li>
+         </ul>
+         </div>
+		 
+		       	 
+			   
+		 </div>
+		 <!-- End Header -->
+		 
+		 <!-- Begin Left Column -->
+		 
+		 <div id="leftcolumn">
+		   <%= image_tag("navbartop.jpg")%>
+      
+      
+      
+       <% for category in @categories %>
+      
+         <div id="navbar">
+         <a id="nav" href="#" onclick="Effect.toggle('<%= category.name%>','slide'); return false;"><b><%=h category.name %></b></a></li>
+     
+           <div id="<%= category.name%>" style="display:none;">
+          
+           <% for business_type in category.business_types%>
+             <div id="submenu">
+             <ul>
+             <li id="sub"><%= link_to business_type.name, business_type_path(business_type) %></li>
+             </ul>
+             </div>
+          
+             <%end%>
+          
+          </div>
+          
+        </div> 
+        <%end%>
+          
+		    <%= image_tag("navbarbottom.jpg")%>
+		  </div>      
+		 
+		 <!-- End Left Column -->
+		 
+		 <!-- Begin Right Column -->
+		 <div id="rightcolumn">
+		 <%= image_tag("rightcolumntop.jpg")%>
+		 <div id="rightelement">
+		 
+		 <%= yield  %>
+		 
+		 </div>
+	          
+		 <%= image_tag("rightcolumnbottom.jpg")%>
+		 </div>
+		 <!-- End Right Column -->
+		 
+		 <!-- Begin Footer -->
+		 <div id="footer">
+		       
+			   	
+			    
+	  </div>
+		 <!-- End Footer -->
+		 
+   </div>
+   <!-- End Wrapper -->
 
 </div>
 </body>

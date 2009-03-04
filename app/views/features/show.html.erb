@@ -1,32 +1,63 @@
-
+<div class="features_header">
 <p>
-  <h1>Business name:</h1>
+  
   <%=h @feature.business_name %>
+
+<span class="feature_business_type"><%=h @feature.business_type.name %></div>
+</span>
 </p>
 
+<%= image_tag  @feature.logophoto.url %> 
+
+<div class="feature_address">
+
+
+<p>	<%=h @feature.first_line_address %> </p>
+<p>	<%=h @feature.second_line_address %> </p>
+<p>	<%=h @feature.address_town %> </p>
+<p>	<%=h @feature.address_county %> </p>
+<p>	<%=h @feature.address_postcode %> </p>
+</div>
+
+
+	
+<div class="features_show">
+<div class="features_tel">
 <p>
-  <b>Telephone:</b>
+ <%= image_tag("phoneicon.jpg")%>
   <%=h @feature.telephone %>
+
+<% if @feature.web_address%>
+ <%= image_tag("webicon.jpg")%>
+  <%=link_to @feature.web_address, "http://#{@feature.web_address}"%>
+<% end %>
+
+<% if @feature.email%>
+
+ <%= image_tag("emailicon.jpg")%>
+  <%=h @feature.email %>
+
+<%end%>
+</p>
+</div>
+<p>
+  <b>Average Star Review</b>
+  <%= display_stars(@feature.average_stars.to_f) %>
 </p>
 
-<p>
-  <b>Description:</b>
+
+<p class="feature_desc">
   <%=h @feature.description %>
 </p>
 
-<p>
-  <b>Category:</b>
-  <%=h @feature.category %>
-</p>
+
 <% if logged_in?%>
-  <p>
-<i>Write a review</i>
-</p>
-<% @feature.reviews.each do |review| %>
-  <%= review.comments %><br/>
-  <%= review.user.login %>
-  <hr/>
-<% end %>
+  <a href="#" onclick="Effect.toggle('blinddown_demo','slide'); return false;">Write a review? Click here</a></li>
+  <hr>
+
+<div id="blinddown_demo" style="display:none;">
+
+
 <% form_tag feature_reviews_path(@feature) do %>
   <%= flash[:error] %>
 
@@ -34,17 +65,41 @@
     <%= label :review, :comments %><br />
     <%= text_area :review, :comments %>
   </p>
+  <p>Stars</p>
   <p>
-    <%= label :review, :stars %><br />
-    <%= text_field :review, :stars %>
+   <ul class="review_form">
+    <% 1.upto(5) do |i| %>
+    <li><%= label :review, i %><br />
+    <%= radio_button :review, :stars, i %>
+    </li>
+    <%end%>
+  </ul>
+  <div class="clear"></div>
   </p>
-  <p>
     <%= submit_tag   "Create" %>
   </p>
+  </div>
+<% @feature.reviews.most_recent.each do |review| %>
+  <p>
+  <%= review.user.login %><i> gave </i>
+  <%= display_stars(review.stars.to_f) %>
+  </p>
+  <div>"<%= review.comments %>"</div><br/>
+  
+  <hr/>
+<% end %>
+
+
 <% end %>
 <% end %>
 
 
 
-<%= link_to 'Edit', edit_feature_path(@feature) %> |
-<%= link_to 'Back', features_path %>
+<% if current_user %>
+  <% if current_user.admin_access %>
+<%= link_to 'Edit', edit_feature_path(@feature) %>
+<% end %>
+<% end %>
+
+<%= link_to 'Back',  business_type_path(@feature.business_type) %>
+</div>

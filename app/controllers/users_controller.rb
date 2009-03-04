@@ -6,7 +6,14 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
   end
+  def index
+    @users = User.find(:all)
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+  end
+end
   def create
     cookies.delete :auth_token
     # protects against session fixation attacks, wreaks havoc with 

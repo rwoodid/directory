@@ -1,7 +1,12 @@
 <h1>Editing review</h1>
+<%= @review.comments %>
 
 <% form_for(@review) do |f| %>
   <%= f.error_messages %>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </p>
 
   <p>
     <%= f.submit "Update" %>

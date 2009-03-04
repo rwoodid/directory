@@ -1,0 +1,16 @@
+<h1>Editing business_type</h1>
+
+<% form_for(@business_type) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Business Types list', business_types_path %>
+<%= link_to 'Back to Categories list', categories_path %>

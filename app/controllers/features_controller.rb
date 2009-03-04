@@ -1,9 +1,21 @@
 class FeaturesController < ApplicationController
+  before_filter :find_business_types, :except => [:index, :show]
+  before_filter :find_feature, :only => [:edit,:update]
+  
   # GET /features
   # GET /features.xml
   def index
-    @features = Feature.find(:all)
-
+    options = {
+      :order => 'created_at DESC'} 
+    options[:page] = params[:page]
+    
+    if params[:term]
+        options[:conditions] = [ "business_name LIKE :term or description LIKE :term", {:term =>"%#{params[:term]}%"}]
+    end
+        
+    @features = Feature.paginate options
+    @categories = Category.find(:all)
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @features }
@@ -14,7 +26,7 @@ class FeaturesController < ApplicationController
   # GET /features/1.xml
   def show
     @feature = Feature.find(params[:id])
-
+    @categories = Category.find(:all)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @feature }
@@ -25,7 +37,7 @@ class FeaturesController < ApplicationController
   # GET /features/new.xml
   def new
     @feature = Feature.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @feature }
@@ -34,14 +46,14 @@ class FeaturesController < ApplicationController
 
   # GET /features/1/edit
   def edit
-    @feature = Feature.find(params[:id])
+
   end
 
   # POST /features
   # POST /features.xml
   def create
     @feature = Feature.new(params[:feature])
-
+    
     respond_to do |format|
       if @feature.save
         flash[:notice] = 'Feature was successfully created.'
@@ -57,8 +69,6 @@ class FeaturesController < ApplicationController
   # PUT /features/1
   # PUT /features/1.xml
   def update
-    @feature = Feature.find(params[:id])
-
     respond_to do |format|
       if @feature.update_attributes(params[:feature])
         flash[:notice] = 'Feature was successfully updated.'
@@ -74,12 +84,19 @@ class FeaturesController < ApplicationController
   # DELETE /features/1
   # DELETE /features/1.xml
   def destroy
-    @feature = Feature.find(params[:id])
     @feature.destroy
 
     respond_to do |format|
       format.html { redirect_to(features_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def find_business_types
+    @business_types = BusinessType.find(:all, :order => "name")
+  end
+
+  def find_feature
+    @feature = Feature.find(params[:id])
   end
 end

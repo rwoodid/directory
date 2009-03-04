@@ -1,17 +1,20 @@
 <h1>Listing reviews</h1>
 
-<table>
-  <tr>
-  </tr>
+
+
 
 <% for review in @reviews %>
-  <tr>
-    <td><%= link_to 'Show', review %></td>
-    <td><%= link_to 'Edit', edit_review_path(review) %></td>
-    <td><%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div>
+
+<%= review.comments %>
+<%= link_to 'Show', review %></td>
+<%= link_to 'Edit', edit_review_path(review) %>
+<%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %>
+
+</div>
+
 <% end %>
-</table>
+
 
 <br />
 

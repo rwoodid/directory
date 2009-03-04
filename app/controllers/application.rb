@@ -4,6 +4,17 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
+  
+  before_filter :load_categories
+  before_filter :random_quote
+  
+  def load_categories
+    @categories = Category.find(:all)
+  end
+  
+  def random_quote
+    @random_review = Review.random
+  end
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

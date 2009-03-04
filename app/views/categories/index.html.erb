@@ -1,0 +1,45 @@
+<h1>Listing categories and Business Types</h1>
+
+
+
+
+  <% for category in @categories %>
+  
+  <h1><%=h category.name %></h1>
+    
+
+     <% for business_type in category.business_types%>
+     <div class="business_types_show">
+     <ul>
+     <li><%= link_to business_type.name, edit_business_type_path(business_type) %></li>
+     </ul>
+     </div>
+     <%end%>   
+
+    <hr/>
+    
+     <ul>
+    <li><%= link_to 'Show & Add Business Types', category %></li>
+    <li><%= link_to 'Edit', edit_category_path(category) %></li>
+    <li><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></li>
+    </ul>
+    <% end %>
+    
+    <h1>New category</h1>
+
+    <% form_for(@category) do |f| %>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.submit "Create" %>
+      </p>
+    <% end %>
+    <p><%= link_to 'Back to Admin Page', {:controller => 'admin', :action=>'index'}%>
+
+    
+
+
+

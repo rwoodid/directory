@@ -23,6 +23,9 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   # GET /reviews/new.xml
+  #ef to_param
+  #   "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
+  #end
   def new
     @review = Review.new
 

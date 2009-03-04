@@ -1,0 +1,18 @@
+
+<h1><%=h @business_type.name %></h1>
+
+
+
+<% @business_type.features.by_average_review.each do |feature| %>
+  <div class="features_header">
+  <%= feature.business_name %><span class="feature_business_type"><%=h feature.telephone %></span>
+</div>
+<div class="business_types_show">
+  <%= feature.summary%>
+  <p>Average Review Stars</p>
+  <%= display_stars(feature.average_stars.to_f) %>
+  <%= link_to image_tag("moreinfobutton.jpg", :border=>0), feature %>
+  </div>
+
+<% end %>
+

@@ -1,0 +1,23 @@
+<h1>Listing Business Types</h1>
+
+<table>
+  <tr>
+    <th>Business Type Name</th>
+  </tr>
+
+<% for business_type in @business_types %>
+<tr>
+  <td><%=h business_type.name %></td>
+    
+
+    
+    <td><%= link_to 'Edit', edit_business_type_path(business_type) %></td>
+    <td><%= link_to 'Destroy', business_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'Back to Categories List', categories_path %>

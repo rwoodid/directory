@@ -1,26 +1,186 @@
-body { background-color: white; color: #333;
-		 }
 
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   14px;
-  line-height: 22px;
+
+* { padding: 0; margin: 0; }
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 15px;
 }
+a:link{text-decoration: none;}
+a:active {color: #000000;text-decoration: none;}
+a:visited {color: #000000;text-decoration: none;}
+a:hover {color: #000000; text-decoration: none;}
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+
+#wrapper { 
+ margin: 0 auto;
+ width: 922px;
+
 }
-
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: red; background-color:#000; }
-
-#pagewrap {
-	width: 1000px;
-	margin: 0 auto;
+#header {
+ color: #333;
+ width: 900px;
+ height:140px;
+ float: left;
+ padding: 11px;
+ border: 0px solid #ccc;
+ background-image: url('../images/greatmedwayheader.jpg');
+ 
+ margin: 10px 0px 5px 0px;
+ 
 }
-li#log { background-color: #CCCCCC; color: #FDC123;
-		padding:5px;
-		width: 150px;}
+#leftcolumn { 
+ color: #FFFFFF;
+ border: 0px solid #ccc;
+ background: #FF0000;
+ margin: 0px 15px 15px 10px;
+ padding: 0px;
+ width: 195px;
+ float: left;
+}
+#submenu {color:#000000;
+		background:#FFFFFF;
+		width:150px;
+		position:relative; top: 19px; left: 15px;
+		margin: 0px 0px 0px 0px;
+		min-height:30px;
+		
+		}
+li#sub a {color:#000000;}
+li#sub a:hover {color:#FF0000; background:#FFFFFF;}
+li#sub {list-style-type: none;
+		text-decoration: none;
+		color:#000000;
+		background:#FFFFFF;
+		}
+
+/*a:link {color: #00ff00;}
+a:active {color: #0000ff;}
+a:visited {color: #ffffff;}
+a:hover {color: #000000; text-decoration: none; }*/
+
+
+#navbar {color:#FFFFFF;
+		background:#FF0000;
+		background-image: url('../images/navbarbutton.jpg');background-repeat: no-repeat;
+		min-height:40px;
+		margin:5px;}
+a#nav {position:relative; top: 15px; left: 15px;
+	color:#FFFFFF;
+	background:#FF0000;
+	
+	margin:10px;
+	}
+#navbar a:hover{color:#000000;}
+#log {
+	float:right;
+	background:#FF0000;
+	color:#FFFFFF;
+	margin:15px;
+	
+}
+#log a:hover {color:#FFFFFF; background:#FF0000;}
+
+.loginlabel{margin: 0px 0px 20px 0px;}
+#rightcolumn { 
+ float: right;
+ color: #000000;
+ border: 0px solid #ccc;
+ background: #FF0000;
+ margin: 0px 10px 0px 0px;
+ padding: 0px;
+ width: 690px;
+ display: inline;
+}
+#rightelement {
+	padding:20px;
+	
+}
+.clear{float:clear;}
+#best_quote {position:absolute; top: 110px; left: 180px;
+	color:#FFFFFF;
+	background:#FF0000;
+	}
+.business_types_show {margin: 10px 0px 10px 0px;
+						padding: 10px 0px 10px 10px;
+						min-width:350px;
+						background:#FFFFFF;}
+						
+.features_show {margin: 15px 0px 10px 0px;
+					padding: 10px 0px 10px 10px;
+					min-width:350px;
+					background:#FFFFFF;
+					border-color:#990000;}
+.feature_business_type{float:right;
+					display:inline;
+					margin: 0px 10px 0px 0px}
+
+					
+					
+.features_header {		margin: 10px 0px 10px 0px;
+						padding: 10px 0px 10px 10px;
+						min-width:350px;
+						background:#990000;
+						color:#FFFFFF;
+						font-size:20px;}
+						
+.feature_address {		float: right;
+						margin: 0px 0px 0px 0px;
+						padding: 10px 0px 10px 10px;
+						min-width:150px;
+						background:#FFFFFF;
+						color:;
+						font-size:15px;}
+.features_tel	{ font-size:16px;
+					margin: 0px 0px 10px 0px;}
+					
+.feature_desc{margin: 20px 10px 10px 0px;
+				background:#CCCCCC;
+				padding: 10px 0px 10px 10px;}
+				
+				.fieldWithErrors {
+				  padding: 2px;
+				  background-color: red;
+				  display: table;
+				}
+
+				#errorExplanation {
+				  width: 400px;
+				  border: 2px solid red;
+				  padding: 7px;
+				  padding-bottom: 12px;
+				  margin-bottom: 20px;
+				  background-color: #f0f0f0;
+				}
+
+				#errorExplanation h2 {
+				  text-align: left;
+				  font-weight: bold;
+				  padding: 5px 5px 5px 15px;
+				  font-size: 12px;
+				  margin: -7px;
+				  background-color: #c00;
+				  color: #fff;
+				}
+
+				#errorExplanation p {
+				  color: #333;
+				  margin-bottom: 0;
+				  padding: 5px;
+				}
+
+				#errorExplanation ul li {
+				  font-size: 12px;
+				  list-style: square;
+				}
+
+
+/*#footer { 
+ width: 900px;
+ clear: both;
+ color: #333;
+ border: 1px solid #ccc;
+ background: #BD9C8C;
+ margin: 0px 0px 10px 0px;
+ padding: 10px;
+}*/

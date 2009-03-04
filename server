@@ -1,0 +1,136 @@
+Script started on Thu Feb 12 13:34:55 2009
+richard-woods-computer:~/RailsWork/directory richardwood$ script/server
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails 2.1.0 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.1 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+
+
+Processing FeaturesController#index (for 127.0.0.1 at 2009-02-12 13:35:24) [GET]
+  Session ID: 741222265c39b98f2d3de56184bb5a01
+  Parameters: {"action"=>"index", "controller"=>"features"}
+  [4;36;1mSQL (0.121911)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.023372)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCategory Load (0.516716)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mFeature Load (0.026647)[0m   [0mSELECT * FROM `features` [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/application
+Rendering features/index
+  [4;35;1mFeature Columns (0.088294)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mBusinessType Columns (0.002201)[0m   [0;1mSHOW FIELDS FROM `business_types`[0m
+  [4;35;1mBusinessType Load (0.065920)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 7) [0m
+  [4;36;1mBusinessType Load (0.000371)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 10) [0m
+  [4;35;1mBusinessType Load (0.000266)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 2) [0m
+  [4;36;1mBusinessType Load (0.000225)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 9) [0m
+  [4;35;1mBusinessType Load (0.000203)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 5) [0m
+  [4;36;1mBusinessType Load (0.000188)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 15) [0m
+  [4;35;1mBusinessType Load (0.000202)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 16) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.`id` = 5) [0m
+  [4;35;1mCategory Columns (0.002305)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mBusinessType Load (0.000360)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 5) [0m
+  [4;35;1mBusinessType Load (0.000297)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 6) [0m
+  [4;36;1mBusinessType Load (0.000227)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 7) [0m
+  [4;35;1mBusinessType Load (0.000219)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 8) [0m
+  [4;36;1mBusinessType Load (0.000221)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 9) [0m
+  [4;35;1mBusinessType Load (0.000217)[0m   [0mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 10) [0m
+  [4;36;1mBusinessType Load (0.000230)[0m   [0;1mSELECT * FROM `business_types` WHERE (`business_types`.category_id = 11) [0m
+Completed in 0.98647 (1 reqs/sec) | Rendering: 0.15485 (15%) | DB: 0.85059 (86%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-12 13:35:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjUxMGYzNjUxZjE5NDE3ODk5ZmEwMzAwMGEyMmEz
+ZjciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--ed9bf1a1bdff5c63dd25a1eed22cf6d622f3808b
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:155:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:154:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:154:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:281:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:281:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:264:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:264:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel.rb:264:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel/configurator.rb:282:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel/configurator.rb:281:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel/configurator.rb:281:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/bin/mongrel_rails:128:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/lib/mongrel/command.rb:212:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.1/bin/mongrel_rails:281
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+^C** INT signal received.
+Exiting
+richard-woods-computer:~/RailsWork/directory richardwood$ script/plugin install git://github.com/thoughtbot/paperclip.git 
+removing: /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git
+Initialized empty Git repository in /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git/
+  ^[[B    script generategithub.com[0: 65.74.177.129]: errno=Operation timed out
+fatal: unable to connect a socket (Operation timed out)
+richard-woods-computer:~/RailsWork/directory richardwood$ script generate               script/plugin install git://github.com/thoughtbot/paperclip.git
+removing: /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git
+Initialized empty Git repository in /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git/
+github.com[0: 65.74.177.129]: errno=Operation timed out
+fatal: unable to connect a socket (Operation timed out)
+richard-woods-computer:~/RailsWork/directory richardwood$ sudo port install ImageMagick
+Password:
+--->  Fetching XFree86
+Error: Target org.macports.fetch returned: 
+
+                    You have an Apple X11 installation already.
+                        MacPorts will not overwrite it.
+
+                    If you wish to use Apple X11,
+                        install the X11SDK included with Xcode tools.
+
+                    If you really want to use XFree86 instead,
+                        please move it aside first :
+
+                            sudo mv /usr/X11R6 /usr/X11R6.apple
+                
+Error: The following dependencies failed to build: XFree86 bzip2 fontconfig freetype jpeg libpng libxml2 tiff
+Error: Status 1 encountered during processing.
+richard-woods-computer:~/RailsWork/directory richardwood$ script/plugin install git://github.com/thoughtbot/paperclip.git
+removing: /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git
+Initialized empty Git repository in /Users/richardwood/RailsWork/directory/vendor/plugins/paperclip/.git/
+github.com[0: 65.74.177.129]: errno=Operation timed out
+fatal: unable to connect a socket (Operation timed out)
+richard-woods-computer:~/RailsWork/directory richardwood$ sudo port install
